@@ -27,11 +27,16 @@ def is_prime(n):
     if n < 2:
         return False
     
-    # Consider all numbers from 2 to the square root of n
-    for i in range(2, int(n ** 0.5) + 1):
-        # If a factor is found, the number is not prime
-        if n % i == 0:
+    # Check if the number is divisible by 2 or 3
+    if n == 2 or n == 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    
+    # Consider all numbers of the form 6k ± 1 up to the square root of n
+    for i in range(5, int(n ** 0.5) + 1, 6):
+        if n % i == 0 or n % (i + 2) == 0:
             return False
+    
     # If no factors have been found, the number is prime
     return True
-    # 
