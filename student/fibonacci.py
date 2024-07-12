@@ -22,11 +22,16 @@ def fibonacci(n):
     >>> fibonacci(9)
     34
     """
-    sqrt_5 = 5**0.5
-    phi = (1 + sqrt_5) / 2
-    psi = (1 - sqrt_5) / 2
-    fib = (phi**n - psi**n) / sqrt_5
-    return round(fib)
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        sqrt_5 = 5**0.5
+        phi = (1 + sqrt_5) / 2
+        psi = (1 - sqrt_5) / 2
+        fib = (phi**n - psi**n) / sqrt_5
+        return round(fib)
 
 
 
