@@ -60,17 +60,19 @@ def largest_triangle_area(n, radius, h=0.0):
     Returns:
       Area of the largest inscribed triangle
     """
-    h = largest_triangle_proof(n, radius)
-    # The largest triangle is an equilateral triangle
-    largest_A = []
-    step = radius / n
+    # h = largest_triangle_proof(n, radius)
+    # # The largest triangle is an equilateral triangle
+    # largest_A = []
+    # step = radius / n
     
-    for d in np.arange(0, radius, step):
-        base_length = 2 * math.sqrt(radius**2 - d**2)
-        area = 0.5 * base_length * (d + h)
-        if len(largest_A) == 0:
-            largest_A.append(area)
-        elif area>=max(largest_A):
-            largest_A.append(area)
-    return max(largest_A)
+    # for d in np.arange(0, radius, step):
+    #     base_length = 2 * math.sqrt(radius**2 - d**2)
+    #     area = 0.5 * base_length * (d + h)
+    #     if len(largest_A) == 0:
+    #         largest_A.append(area)
+    #     elif area>=max(largest_A):
+    #         largest_A.append(area)
+    # return max(largest_A)
+    area = (3 * math.sqrt(3) / 4) * (radius ** 2)
+    return area
 
