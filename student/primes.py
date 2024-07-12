@@ -40,7 +40,7 @@
     
 #     # If no factors have been found, the number is prime
 #     return True
-
+from numba import jit
 
 def write_primes(n, path):
     '''
@@ -57,6 +57,7 @@ def write_primes(n, path):
     with open(path, 'w') as file:
         file.write(primes_str)
 
+@jit(nopython=True)
 def sieve_of_eratosthenes(n):
     is_prime = [True] * (n+1)
     is_prime[0] = is_prime[1] = False
