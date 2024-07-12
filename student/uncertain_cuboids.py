@@ -1,7 +1,8 @@
-import random
 import numpy as np
-import math
+# import math
+from numba import jit
 
+@jit(nopython=True)
 def calculate_uncertain_cuboid_statistics(n_sample, mean_length, mean_width, mean_height, range_length=0, range_width=0, range_height=0):
     '''
     Calculate the mean and standard deviation of the volume of a cuboid with uncertain dimensions.
@@ -46,7 +47,7 @@ def calculate_uncertain_cuboid_statistics(n_sample, mean_length, mean_width, mea
     # Return the mean and standard deviation of the volumes
     return mean_volume, std_volume
 
-
+@jit(nopython=True)
 def get_cuboid_volume(length, width, height):
     '''
     Calculate the volume of a cuboid.

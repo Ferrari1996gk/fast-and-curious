@@ -112,6 +112,7 @@
 import numpy as np
 from numba import jit
 
+@jit(nopython=True)
 def create_numbered_deck(n):
     """
     Helper function to create a deck of cards numbered from 0 to n-1.
@@ -124,6 +125,7 @@ def create_numbered_deck(n):
     """
     return np.arange(n)
 
+@jit(nopython=True)
 def cut(deck, n):
     """
     Helper function to perform a cut operation on the deck.
@@ -137,6 +139,7 @@ def cut(deck, n):
     """
     return np.concatenate((deck[n:], deck[:n]))
 
+@jit(nopython=True)
 def deal(deck):
     """
     Helper function to deal the deck to a new pile, reversing the order of cards.
@@ -149,6 +152,7 @@ def deal(deck):
     """
     return deck[::-1]
 
+@jit(nopython=True)
 def faro_shuffle(deck):
     """
     Helper function to perform a Faro out-shuffle on the deck
@@ -168,11 +172,11 @@ def faro_shuffle(deck):
     first_half = deck[:half_size]
     second_half = deck[half_size:]
     
-    new_deck = np.empty(size, dtype=deck.dtype)
+    new_deck = np.zeros(size)
     new_deck[::2] = first_half
     new_deck[1::2] = second_half
-
     return new_deck
+
 
 def find_card_position(deck_size, instructions, card):
     """
