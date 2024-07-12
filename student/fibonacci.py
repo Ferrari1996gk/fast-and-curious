@@ -22,9 +22,11 @@ def fibonacci(n):
     >>> fibonacci(9)
     34
     """
-    if n <= 1:
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    sqrt_5 = 5**0.5
+    phi = (1 + sqrt_5) / 2
+    psi = (1 - sqrt_5) / 2
+    fib = (phi**n - psi**n) / sqrt_5
+    return round(fib)
 
 
 
